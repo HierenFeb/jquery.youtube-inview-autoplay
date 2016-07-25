@@ -30,10 +30,12 @@ First, you need to load YouTube API. Then you need to apply plugin to all video 
       autohide: 1,
       modestbranding: 1,
       rel: 0,
-      quality: 'hd720'
+      quality: 'hd720',
+      volume: 30,
+      loop: 1
     });
   }
 </script>
 ```
 
-In plugin call you can pass player parameters object, for a list of supported parameters see: https://developers.google.com/youtube/player_parameters#Parameters
+In plugin call you can pass player parameters object, for a list of supported parameters see: https://developers.google.com/youtube/player_parameters#Parameters and here: https://developers.google.com/youtube/iframe_api_reference

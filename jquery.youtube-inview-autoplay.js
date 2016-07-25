@@ -9,10 +9,12 @@
 ;(function ($) {
     $.fn.inViewAutoplay = function (options) {
         return this.filter('[id][width][height][data-video-id]').each(function () {
+            var dataIdVideo = this.getAttribute('data-video-id');
+
             new YT.Player(this.getAttribute('id'), {
                 width: this.getAttribute('width'),
                 height: this.getAttribute('height'),
-                videoId: this.getAttribute('data-video-id'),
+                videoId: dataIdVideo,
                 playerVars: options,
                 events: {
                     'onReady': onPlayerReady
@@ -26,6 +28,15 @@
 
                 if (options.quality) {
                     player.setPlaybackQuality(options.quality);
+                }
+
+                if (options.volume) {
+                    player.setVolume(options.volume);
+                }
+
+                if (options.loop) {
+                    player.cuePlaylist(dataIdVideo);
+                    player.setLoop(true);
                 }
             }
 
